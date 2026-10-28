@@ -1,0 +1,118 @@
+================================================================================
+SDTI RESEARCH CODEBASE - DOCUMENTATION SUMMARY
+================================================================================
+
+Created for GitHub upload - ready to use independently
+
+================================================================================
+DOCUMENTATION FILES
+================================================================================
+
+1. README.md (20KB)
+   ✓ Uses scalable notation (N_D, m, c) like the paper
+   ✓ Explains 3D tensor architecture: (N²_D, m, c)
+   ✓ Emphasizes vectorization for O(N²_D) speedup
+   ✓ Includes one concrete example: N_D=17, m=2000, c=3072
+   ✓ All equations use general dimensions
+   ✓ Complete experimental results
+
+2. DATASETS.md (11KB)
+   ✓ All 17 training + 11 test datasets documented
+   ✓ Download sources and preprocessing steps
+   ✓ Binary classification conversion explained
+
+================================================================================
+KEY CONCEPTS DOCUMENTED
+================================================================================
+
+✓ 3D Tensor Architecture
+  - Why: Enables simultaneous training of all N²_D combinations
+  - Structure: (N²_D, m, c) where N_D=datasets, m=records, c=features
+  - Zero-padding: Required to create uniform tensor dimensions
+  - Speedup: O(N²_D) sequential → O(1) parallel
+
+✓ Scalability Notation
+  - N_D = number of datasets (17 in this experiment)
+  - N²_D = number of combinations (289 in this experiment)
+  - m = records per dataset (2000 in this experiment)
+  - c = max feature dimension (3072 in this experiment)
+
+✓ Memory Scaling
+  - Memory ≈ O(N²_D · m · c)
+  - Example: N_D=17 → 6.6GB, N_D=30 → 20GB
+
+✓ Vectorization
+  - All N²_D ANNs train simultaneously
+  - 100× speedup in practice (N_D=17)
+  - Makes ablation study computationally feasible
+
+================================================================================
+REPOSITORY CONTENTS
+================================================================================
+
+Documentation:
+- README.md              Main documentation with architecture
+- DATASETS.md            Dataset descriptions and sources
+- SUMMARY.txt            This file
+
+Code (DO NOT MODIFY):
+- dataset_preprocessing.py    All preprocessing functions
+
+Notebooks (Run these):
+- SDTI Pipeline.ipynb        Main model implementation
+- BaselineTests.ipynb        Baseline comparisons
+- Results Analysis.ipynb     Ablation study analysis
+- CostDataAnalysis.ipynb     Manifold complexity analysis
+
+Results (Example outputs):
+- TestResults.csv            3,600 configurations tested
+- CostResults.csv            Cost trajectories
+- correct_cost_vals.npy      Correct pairing costs
+- incorrect_cost_vals.npy    Incorrect pairing costs
+- MeanValues.jpg             Visualization
+- ablation_results_enhanced.jpg  3D plot
+
+================================================================================
+CITATION
+================================================================================
+
+@article{gould2026sdti,
+  title={Self-Directed Task Identification},
+  author={Gould, Timothy and Paheding, Sidike},
+  journal={arXiv preprint arXiv:2604.02430},
+  year={2026},
+  institution={Fairfield University}
+}
+
+================================================================================
+QUICK START
+================================================================================
+
+1. Install dependencies:
+   pip install torch numpy pandas scikit-learn scipy matplotlib torchmetrics pillow
+
+2. Download datasets (see DATASETS.md for links)
+   Place in datasets/ directory
+
+3. Run SDTI Pipeline.ipynb
+   - Start with small test: m=500, epochs=11, sdti_epochs=15
+   - Expected F1 > 0.90 in ~45 seconds
+
+4. Analyze results:
+   - Results Analysis.ipynb for ablation study
+   - CostDataAnalysis.ipynb for manifold analysis
+
+================================================================================
+NOTE ON INDEPENDENCE
+================================================================================
+
+⚠️ Minor S3 dependency in SDTI Pipeline.ipynb:
+   - Lines with boto3 and s3.upload_file will fail without AWS credentials
+   - Results still save locally to CSV files
+   - Can be safely removed or wrapped in try-except
+
+✓ All other code is fully independent and portable
+
+================================================================================
+END OF SUMMARY
+================================================================================

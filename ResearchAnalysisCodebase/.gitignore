@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+
+# Environment
+.env
+.venv
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Large datasets - too big for GitHub
+# Users must download these separately (see DATASETS.md)
+datasets/
+*.csv.gz
+*.data.gz
+
+# Temporary files
+*.tmp
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Large archives
+*.tar.gz
+*.zip
+Codebase.tar.gz
+archive_name.tar.gz
+
+# SageMaker specific
+.sagemaker/
+.cache/
+.local/
+.jupyter/
+.ipython/
+.kiro/
+.npm/
+.sagemaker_sql_editor_api_cache/
+.virtual_documents/
+user-default-efs/
+
+# AWS credentials (never commit these!)
+*.pem
+*.key
+credentials
+config

@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Environment
+.env
+.venv
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Datasets (download from S3 — see download_datasets.sh)
+datasets/
+
+# Large result files (download from S3 — see download_datasets.sh)
+ResearchAnalysisCodebase/CostResults.csv
+
+# Archives
+*.tar.gz
+*.zip
+
+# SageMaker / AWS workspace files
+.sagemaker/
+.cache/
+.local/
+.jupyter/
+.ipython/
+.kiro/
+.npm/
+.nv/
+.config/
+.sagemaker_sql_editor_api_cache/
+.virtual_documents/
+.agent/
+.aws/
+.bashrc
+.claude/
+.claude.json
+user-default-efs
+
+# AWS credentials
+*.pem
+*.key
+credentials
