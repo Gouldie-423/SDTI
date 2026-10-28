@@ -1,0 +1,3 @@
+-ResearchAnalysisCodebase contains bulk of project & has separate documentation within directory
+-Timothy_Gould_SDTI_Final.pdf is accompanying paper associated with research
+-download-datasets.sh downloads datasets locally from S3 bucket for replication
